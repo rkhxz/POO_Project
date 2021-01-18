@@ -1,0 +1,7 @@
+{
+   "destination_addresses" : [],
+   "error_message" : "Invalid request. One of the input parameters contains a non-UTF-8 string.",
+   "origin_addresses" : [],
+   "rows" : [],
+   "status" : "INVALID_REQUEST"
+}
