@@ -11,6 +11,7 @@
 #include <type_traits>
 #include <sstream>
 #include <vector>
+#include <iomanip>
 using namespace std;
 #include "preflight.h"
 using namespace preflight;
@@ -27,6 +28,7 @@ Elf elfs[number_of_children];
 string cities[2*number_of_children];
 int distances[2*number_of_children][2*number_of_children] = {};
 int no_of_cities = 0;
+double total_distance = 0;
 int road1[2*number_of_children];
 string final_road[2*number_of_children];
 
@@ -43,6 +45,7 @@ void generateDistMatrix(){
                 distances[i][j] = 0;
             else{
                 distances[i][j] = distances[j][i] = computeDistance(cities_coord[i].lati, cities_coord[i].longi, cities_coord[j].lati, cities_coord[j].longi);
+                total_distance += distances[i][j];
                 //cout << "Distance from " << cities[i] << " to " << cities[j] << " is :" << distances[i][j] << "\n";
             }
         }
@@ -177,7 +180,7 @@ void saveCitiesToCSV()
                 checked_cities[nb_of_checked_cities] = c.getCity();
                 nb_of_checked_cities++;
                 citiesF << c.getCity() << "\n"; 
-                cout << c.getCity() << "\n";
+                //cout << c.getCity() << "\n";
                 checked = false;
             }
         }
@@ -203,6 +206,8 @@ int main()
     Santa Santa("Santa", final_road, no_of_cities);
     Mrs_Claus Mrs_Claus(Santa);
     Mrs_Claus.showRoad();
+    std::cout << std::setprecision(9) << std::showpoint << std::fixed;
+    cout << "Total distance is: " << total_distance << "Km";
     getch();
     return 0;
 }

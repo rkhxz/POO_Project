@@ -11,7 +11,7 @@ namespace preflight
     const map<string, int> genericFunds{{"good", 100}, {"bad", 10}};
 
     ////////MODIFY NUMBER OF CHILDREN => Affects the whole program
-    const int no_of_children = 100;
+    const int no_of_children = 800;
 
     //Starting Mocks
     const short int mockFirstName = 0;
