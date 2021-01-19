@@ -71,7 +71,7 @@ void generateCityStrings(){
                 size_t s = c.getCity().find("");
                 size_t e = c.getCity().find(",", s);
                 size_t f;
-                string sub = c.getCity().substr(s , e - s - 1);
+                string sub = c.getCity().substr(s , e - s);
                 cities[no_of_cities] = sub;
                 s = c.getCity().find(",");
                 e = c.getCity().find(",", s);
